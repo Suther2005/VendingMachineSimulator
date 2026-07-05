@@ -18,7 +18,7 @@ public class VendingMachineSimulator {
         products[1] = new Product(2, "Pepsi", 35, 3);
         products[2] = new Product(3, "Water", 20, 8);
         products[3] = new Product(4, "Chips", 25, 6);
-        products[4] = new Product(5, "Chocolate",40, 3);
+        products[4] = new Product(5, "Chocolate", 40, 3);
     }
     public void start() {
         Scanner sc = new Scanner(System.in);
