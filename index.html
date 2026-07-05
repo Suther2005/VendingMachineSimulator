@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Vending Simulator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="vending-machine-container">
+        <!-- Main Machine Body -->
+        <div class="vending-machine">
+            
+            <!-- Left Side: Product Display Grid -->
+            <div class="glass-display" id="product-grid">
+                <!-- Products will be injected via JS -->
+            </div>
+
+            <!-- Right Side: Control Panel -->
+            <div class="control-panel">
+                <!-- Brand / Top Info -->
+                <div class="brand">
+                    <h2 class="neon-text">NEXUS VEND</h2>
+                </div>
+
+                <!-- Digital Screen -->
+                <div class="screen-bezel">
+                    <div class="digital-screen" id="digital-screen">
+                        Welcome! <br/> Select a product.
+                    </div>
+                </div>
+
+                <!-- Numpad -->
+                <div class="numpad">
+                    <button class="num-btn" data-val="1">1</button>
+                    <button class="num-btn" data-val="2">2</button>
+                    <button class="num-btn" data-val="3">3</button>
+                    <button class="num-btn" data-val="4">4</button>
+                    <button class="num-btn" data-val="5">5</button>
+                    <button class="num-btn" data-val="6">6</button>
+                    <button class="num-btn" data-val="7">7</button>
+                    <button class="num-btn" data-val="8">8</button>
+                    <button class="num-btn" data-val="9">9</button>
+                    <button class="num-btn clear-btn" id="btn-clear">CLR</button>
+                    <button class="num-btn" data-val="0">0</button>
+                    <button class="num-btn enter-btn" id="btn-enter">ENT</button>
+                </div>
+
+                <!-- Payment Methods -->
+                <div class="payment-panel" id="payment-panel">
+                    <button class="pay-btn upi" data-pay="UPI">Pay UPI</button>
+                    <button class="pay-btn cash" data-pay="Cash">Insert Cash</button>
+                    <button class="pay-btn card" data-pay="Card">Swipe Card</button>
+                </div>
+
+                <!-- Admin Action Panel (Hidden by Default) -->
+                <div class="admin-panel hidden" id="admin-panel">
+                    <p>Total Sales: <span id="total-sales">₹0</span></p>
+                    <div class="admin-controls">
+                        <input type="number" id="restock-id" placeholder="Prod ID" min="1" max="5">
+                        <input type="number" id="restock-qty" placeholder="Qty" min="1">
+                        <button id="btn-restock">Restock</button>
+                    </div>
+                    <button id="btn-exit-admin">Exit Admin</button>
+                </div>
+
+            </div> <!-- End Control Panel -->
+
+            <!-- Dispenser Area (Bottom) -->
+            <div class="dispenser-area">
+                <div class="dispense-door" id="dispenser-door">
+                    PUSH
+                </div>
+            </div>
+
+        </div> <!-- End Vending Machine -->
+    </div>
+
+    <!-- Payment Modal -->
+    <div id="cash-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3 id="modal-title">Insert Cash</h3>
+            <input type="number" id="cash-input" placeholder="Amount (₹)">
+            <button id="btn-submit-cash">Insert</button>
+            <button id="btn-cancel-cash">Cancel</button>
+        </div>
+    </div>
+
+    <!-- Product Received Overlay -->
+    <div id="received-modal" class="modal hidden">
+        <div class="modal-content success">
+            <h2 id="received-message">Dispensing...</h2>
+            <div id="receipt" class="receipt"></div>
+            <button id="btn-close-receipt">Take Item & Receipt</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
